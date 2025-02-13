@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.nageoffer.shortlink.admin.dao.mapper")
+@MapperScan ("com.nageoffer.shortlink.admin.dao.mapper")
 public class ShortLinkAdminApplication {
 
     public static void main(String[] args) {

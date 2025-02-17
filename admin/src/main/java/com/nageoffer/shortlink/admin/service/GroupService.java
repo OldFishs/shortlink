@@ -9,4 +9,10 @@ import com.nageoffer.shortlink.admin.dao.entity.GroupDO;
  */
 public interface GroupService extends IService<GroupDO> {
 
+    /**
+     * 新增短链接分组
+     *
+     * @param groupName 用户登录请求参数
+     */
+    void saveGroup(String groupName);
 }

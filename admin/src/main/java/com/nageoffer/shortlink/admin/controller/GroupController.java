@@ -27,13 +27,13 @@ public class GroupController {
      * 新增短链接分组
      */
     @PostMapping("/api/short-link/v1/group")
-    public Result<Void> save(@RequestBody ShortLinkGroupSaveReqDTO requestParam) {
+    public Result<Void> saveGroup(@RequestBody ShortLinkGroupSaveReqDTO requestParam) {
         groupService.saveGroup(requestParam.getName());
         return Results.success();
     }
 
     @GetMapping("/api/short-link/v1/group")
-    public Result<List<ShortLinkGroupRespDTO>> listGroup(){
+    public Result<List<ShortLinkGroupRespDTO>> getGroups(){
 
         return Results.success(groupService.listGroup());
     }

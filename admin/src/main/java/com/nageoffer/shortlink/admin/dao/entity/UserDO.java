@@ -3,6 +3,7 @@ package com.nageoffer.shortlink.admin.dao.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.nageoffer.shortlink.admin.common.database.BaseDO;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 
 /**
@@ -12,6 +13,7 @@ import lombok.Data;
 
 @Data
 @TableName("t_user")
+@EqualsAndHashCode(callSuper = true)
 public class UserDO extends BaseDO {
 
         /**

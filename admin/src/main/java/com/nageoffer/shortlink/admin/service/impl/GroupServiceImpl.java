@@ -53,11 +53,23 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper,GroupDO> implement
     @Override
     public void updateGroup(ShortLinkGroupUpdateReqDTO requestParam) {
         LambdaUpdateWrapper<GroupDO> updateWrapper = Wrappers.lambdaUpdate(GroupDO.class)
-                .eq(GroupDO::getGid, requestParam.getGid())
+                .eq(GroupDO::getUsername, UserContext.getUsername())
                 .eq(GroupDO::getGid, requestParam.getGid())
                 .eq(GroupDO::getDelFlag, 0);
         GroupDO groupDO = new GroupDO();
         groupDO.setName(requestParam.getName());
+        baseMapper.update(groupDO, updateWrapper);
+    }
+
+    //软删除一般用update
+    @Override
+    public void deleteGroup(ShortLinkGroupUpdateReqDTO gid) {
+        LambdaUpdateWrapper<GroupDO> updateWrapper = Wrappers.lambdaUpdate(GroupDO.class)
+                .eq(GroupDO::getUsername, UserContext.getUsername())
+                .eq(GroupDO::getGid,gid)
+                .eq(GroupDO::getDelFlag, 0);
+        GroupDO groupDO = new GroupDO();
+        groupDO.setDelFlag(1);
         baseMapper.update(groupDO, updateWrapper);
     }
 

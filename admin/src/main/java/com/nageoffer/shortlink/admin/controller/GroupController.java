@@ -51,9 +51,10 @@ public class GroupController {
     /**
      * 删除短链接分组
      */
-    @PutMapping("/api/shortj-link/v1/group")
-    public Result<Void> deleteGroup(@RequestBody ShortLinkGroupUpdateReqDTO gid){
+    @DeleteMapping("/api/shortj-link/v1/group")
+    public Result<Void> deleteGroup(@RequestParam String gid){
         groupService.deleteGroup(gid);
         return Results.success();
     }
+    
 }

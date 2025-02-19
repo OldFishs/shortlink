@@ -63,7 +63,7 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper,GroupDO> implement
 
     //软删除一般用update
     @Override
-    public void deleteGroup(ShortLinkGroupUpdateReqDTO gid) {
+    public void deleteGroup(String gid) {
         LambdaUpdateWrapper<GroupDO> updateWrapper = Wrappers.lambdaUpdate(GroupDO.class)
                 .eq(GroupDO::getUsername, UserContext.getUsername())
                 .eq(GroupDO::getGid,gid)

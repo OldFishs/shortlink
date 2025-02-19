@@ -39,5 +39,5 @@ public interface GroupService extends IService<GroupDO> {
      *
      * @param gid 短链接分组标识
      */
-    void deleteGroup(ShortLinkGroupUpdateReqDTO gid);
+    void deleteGroup(String gid);
 }

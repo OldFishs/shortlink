@@ -21,7 +21,7 @@ public class UserTransmitFilter implements Filter {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         String username = httpServletRequest.getHeader("username");
         String token = httpServletRequest.getHeader("token");
-        Object UserInfoJsonStr = stringRedisTemplate.opsForHash().get("login_" + username, token);
+        Object UserInfoJsonStr = stringRedisTemplate.opsForHash().get("login_" + username, "token");
 
         if(UserInfoJsonStr != null){
 

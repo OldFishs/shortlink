@@ -11,6 +11,7 @@ import com.nageoffer.shortlink.admin.dao.mapper.GroupMapper;
 import com.nageoffer.shortlink.admin.dto.req.ShortLinkGroupSortReqDTO;
 import com.nageoffer.shortlink.admin.dto.req.ShortLinkGroupUpdateReqDTO;
 import com.nageoffer.shortlink.admin.dto.resp.ShortLinkGroupRespDTO;
+import com.nageoffer.shortlink.admin.remote.ShortLinkRemoteService;
 import com.nageoffer.shortlink.admin.service.GroupService;
 import com.nageoffer.shortlink.admin.toolkit.RandomGenerator;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,12 @@ import java.util.List;
 @Slf4j
 @Service
 public class GroupServiceImpl extends ServiceImpl<GroupMapper,GroupDO> implements GroupService {
+
+    /**
+     * 后续重构为 SpringCloud Feign 调用
+     */
+    ShortLinkRemoteService shortLinkRemoteService = new ShortLinkRemoteService() {
+    };
 
     @Override
     public void saveGroup(String groupName) {

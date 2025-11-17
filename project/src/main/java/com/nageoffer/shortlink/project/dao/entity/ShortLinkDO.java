@@ -95,4 +95,8 @@ public class ShortLinkDO {
      */
     private Integer delFlag;
 
+    /**
+     * 网站标识
+     */
+    private String favicon;
 }

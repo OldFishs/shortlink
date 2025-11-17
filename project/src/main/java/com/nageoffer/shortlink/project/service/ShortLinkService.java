@@ -12,13 +12,13 @@ import com.nageoffer.shortlink.project.dto.resp.ShortLinkCreateRespDTO;
 public interface ShortLinkService extends IService<ShortLinkDO> {
 
     /**
+     * 创建短链接
      *
-     *
-     * @param requestparam 创建团链接请求参数
-     * @return
-     *
+     * @param requestParam 创建短链接请求参数
+     * @return 短链接创建信息
      */
 
+    ShortLinkCreateRespDTO createShortLink(ShortLinkCreateReqDTO requestParam);
 
-    ShortLinkCreateRespDTO createShortLink(ShortLinkCreateReqDTO requestparam);
+
 }

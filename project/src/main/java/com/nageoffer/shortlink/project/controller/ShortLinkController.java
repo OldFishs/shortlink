@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ShortLinkController {
 
     private final ShortLinkService shortLinkService;
+
     /**
      * 创建短链接
      * @return
      */
+
     @PostMapping("/api/shortj-link/v1/create")
     public Result<ShortLinkCreateRespDTO> createShortLink(@RequestBody ShortLinkCreateReqDTO requestparam) {
         return Results.success(shortLinkService.createShortLink(requestparam));

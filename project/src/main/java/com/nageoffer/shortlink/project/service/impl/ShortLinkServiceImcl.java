@@ -95,7 +95,7 @@ public class ShortLinkServiceImcl extends ServiceImpl<LinkMapper, ShortLinkDO> i
             }
         }
         stringRedisTemplate.opsForValue().set(
-                fullShortUrl,
+                String.format(GOTO_SHORT_LINK_KEY, fullShortUrl),
                 requestParam.getOriginUrl(),
                 LinkUtil.getLinkCacheValidTime(requestParam.getValidDate()), TimeUnit.MILLISECONDS
         );
@@ -209,11 +209,13 @@ public class ShortLinkServiceImcl extends ServiceImpl<LinkMapper, ShortLinkDO> i
         //布隆过滤器检查
         boolean contains = shortUriCreateCachePenetrationBloomFilter.contains(fullShortUrl);
         if (!contains) {
+            ((HttpServletResponse) response).sendRedirect("/page/notfound");
             return;
         }
         //空值缓存检查
         String gotoIsNullShortLink = stringRedisTemplate.opsForValue().get(String.format(GOTO_IS_NULL_SHORT_LINK_KEY, fullShortUrl));
         if (StrUtil.isNotBlank(gotoIsNullShortLink)) {
+            ((HttpServletResponse) response).sendRedirect("/page/notfound");
             return;
         }
         //分布式锁保护
@@ -231,6 +233,7 @@ public class ShortLinkServiceImcl extends ServiceImpl<LinkMapper, ShortLinkDO> i
         ShortLinkGotoDO shortLinkGotoDO = shortLinkGotoMapper.selectOne(linkGotoQueryWrapper);
         if (shortLinkGotoDO == null) {
             stringRedisTemplate.opsForValue().set(String.format(GOTO_IS_NULL_SHORT_LINK_KEY, fullShortUrl), "-", 30, TimeUnit.MINUTES);
+            ((HttpServletResponse) response).sendRedirect("/page/notfound");
             return;
         }
         LambdaQueryWrapper<ShortLinkDO> queryWrapper = Wrappers.lambdaQuery(ShortLinkDO.class)
@@ -241,8 +244,14 @@ public class ShortLinkServiceImcl extends ServiceImpl<LinkMapper, ShortLinkDO> i
         ShortLinkDO shortLinkDO = baseMapper.selectOne(queryWrapper);
         if (shortLinkDO != null) {
             stringRedisTemplate.opsForValue().set(String.format(GOTO_SHORT_LINK_KEY, fullShortUrl), shortLinkDO.getOriginUrl());
-            ((HttpServletResponse) response).sendRedirect(shortLinkDO.getOriginUrl());
+            ((HttpServletResponse) response).sendRedirect("/page/notfound");
         }
+        stringRedisTemplate.opsForValue().set(
+                String.format(GOTO_SHORT_LINK_KEY, fullShortUrl),
+                shortLinkDO.getOriginUrl(),
+                LinkUtil.getLinkCacheValidTime(shortLinkDO.getValidDate()), TimeUnit.MILLISECONDS
+        );
+        ((HttpServletResponse) response).sendRedirect(shortLinkDO.getOriginUrl());
     }finally {
             lock.unlock();
         }

@@ -9,9 +9,10 @@ import com.nageoffer.shortlink.admin.dto.req.RecycleBinSaveReqDTO;
 import com.nageoffer.shortlink.admin.dto.req.ShortLinkCreateReqDTO;
 import com.nageoffer.shortlink.admin.dto.req.ShortLinkPageReqDTO;
 import com.nageoffer.shortlink.admin.dto.resp.ShortLinkCreateRespDTO;
-import com.nageoffer.shortlink.admin.dto.resp.ShortLinkPageRespDTO;
+import com.nageoffer.shortlink.admin.remote.dto.req.ShortLinkRecycleBinPageReqDTO;
 import com.nageoffer.shortlink.admin.remote.dto.req.ShortLinkUpdateReqDTO;
 import com.nageoffer.shortlink.admin.remote.dto.resp.ShortLinkGroupCountQueryRespDTO;
+import com.nageoffer.shortlink.admin.remote.dto.resp.ShortLinkPageRespDTO;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
@@ -93,5 +94,21 @@ public interface ShortLinkRemoteService {
      */
     default void saveRecycleBin(RecycleBinSaveReqDTO requestParam) {
         HttpUtil.post("http://127.0.0.1:8001/api/short-link/v1/recycle-bin/save", JSON.toJSONString(requestParam));
+    }
+
+    /**
+     * 分页查询回收站短链接
+     *
+     * @param requestParam 分页短链接请求参数
+     * @return 查询短链接响应
+     */
+    default Result<IPage<ShortLinkPageRespDTO>> pageRecycleBinShortLink(ShortLinkRecycleBinPageReqDTO requestParam) {
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("gidList", requestParam.getGidList());
+        requestMap.put("current", requestParam.getCurrent());
+        requestMap.put("size", requestParam.getSize());
+        String resultPageStr = HttpUtil.get("http://127.0.0.1:8001/api/short-link/v1/recycle-bin/page", requestMap);
+        return JSON.parseObject(resultPageStr, new TypeReference<>() {
+        });
     }
 }

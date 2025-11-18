@@ -4,6 +4,21 @@
     <file url="file://$PROJECT_DIR$/1111/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/1111/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkBaseInfoRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkBatchCreateRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkCreateRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkGroupCountQueryRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkPageRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsAccessDailyRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsAccessRecordRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsBrowserRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsDeviceRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsLocaleCNRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsNetworkRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsOsRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsTopIpRespDTO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkStatsUvRespDTO.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/admin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/resources" charset="UTF-8" />

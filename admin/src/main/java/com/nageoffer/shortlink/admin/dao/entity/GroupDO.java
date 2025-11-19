@@ -2,8 +2,10 @@ package com.nageoffer.shortlink.admin.dao.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.nageoffer.shortlink.admin.common.database.BaseDO;
-import lombok.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 短链接分组实体
@@ -11,9 +13,8 @@ import lombok.*;
 @Data
 @TableName("t_group")
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@AllArgsConstructor
 public class GroupDO extends BaseDO {
 
     /**
@@ -40,5 +41,4 @@ public class GroupDO extends BaseDO {
      * 分组排序
      */
     private Integer sortOrder;
-
 }

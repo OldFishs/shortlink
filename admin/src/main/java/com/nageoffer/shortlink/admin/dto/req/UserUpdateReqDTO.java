@@ -1,18 +1,13 @@
 package com.nageoffer.shortlink.admin.dto.req;
 
-
 import lombok.Data;
 
 /**
- * 用户修改请求参数
+ * 用户注册请求参数
+ *
  */
 @Data
 public class UserUpdateReqDTO {
-
-    /**
-     * id
-     */
-    private Long id;
 
     /**
      * 用户名
@@ -35,7 +30,7 @@ public class UserUpdateReqDTO {
     private String phone;
 
     /**
-     * 电子邮箱
+     * 邮箱
      */
     private String mail;
 }

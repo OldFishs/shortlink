@@ -43,4 +43,9 @@ public class LinkOsStatsDO extends BaseDO {
      * 操作系统
      */
     private String os;
+
+    /**
+     * 分组标识
+     */
+    private String gid;
 }

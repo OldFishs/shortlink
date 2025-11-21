@@ -43,4 +43,9 @@ public class LinkBrowserStatsDO extends BaseDO {
      * 浏览器
      */
     private String browser;
+
+    /**
+     * 分组标识
+     */
+    private String gid;
 }

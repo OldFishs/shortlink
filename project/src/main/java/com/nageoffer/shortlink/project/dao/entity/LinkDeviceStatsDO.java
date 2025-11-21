@@ -43,4 +43,9 @@ public class LinkDeviceStatsDO extends BaseDO {
      * 访问设备
      */
     private String device;
+
+    /**
+     * 分组标识
+     */
+    private String gid; 
 }

@@ -43,4 +43,9 @@ public class LinkNetworkStatsDO extends BaseDO {
      * 访问网络
      */
     private String network;
+
+    /**
+     * 分组标识
+     */
+    private String gid;
 }
